@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import simpleguitk
-from CellStatus import CellStatus
 from Board import *
 
 def draw_handler(canvas):

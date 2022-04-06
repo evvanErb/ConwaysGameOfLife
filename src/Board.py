@@ -41,7 +41,9 @@ def initializeBoard():
         return initializeRandom(seedValue)
 
 def sum(row, column, currentGen):
+
     cellSum = 0
+    
     for rowModifier in range(-1,2):
         for columnModifier in range(-1,2):
 
@@ -53,7 +55,9 @@ def sum(row, column, currentGen):
     
 #rules of game
 def rules(row, column, current, currentGen):
+
     cellSum = sum(row, column, currentGen)
+
     #Underpopulation
     if(cellSum < 2):
         return CellStatus.DEAD
@@ -70,15 +74,21 @@ def rules(row, column, current, currentGen):
     else:
         return CellStatus.DEAD
 
-def updateBoard(board, currentGen):
+def updateBoard(board):
+
+    currentGen = np.copy(board)
+
     for row in range(len(board)):
         for column in range(len(board[row])):
             board[row, column] = rules(row, column, currentGen[row][column], currentGen)
+
     return board
 
 def printBoard(board, canvas):
+
     for row in range(len(board)):
         for column in range(len(board[row])):
+
             if (board[row, column] == CellStatus.ALIVE):
                 y = row*10
                 x = column*10

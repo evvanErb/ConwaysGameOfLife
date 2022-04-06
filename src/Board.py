@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import random
 from CellStatus import CellStatus
-from Sum import sum
 
 def initializeAcorn():
     board = []
@@ -71,6 +70,19 @@ def updateCurrentGen(board, currentGen):
         for column in range(100):
             currentGen[row][column] = board[row][column]
     return currentGen
+
+def sum(row, column, currentGen):
+    
+    cellSum = 0
+
+    for rowModifier in range(-1,2):
+        for columnModifier in range(-1,2):
+
+            if (not (row + rowModifier < 0 or row + rowModifier > 99 or column + columnModifier < 0 or column + columnModifier > 99)):
+                    if ((currentGen[row+rowModifier][column+columnModifier] == CellStatus.ALIVE) and (rowModifier != 0 or columnModifier != 0)):
+                        cellSum += 1
+
+    return cellSum
     
 #rules of game
 def rules(row, column, current, currentGen):

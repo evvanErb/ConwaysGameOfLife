@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import time
 import simpleguitk
 from CellStatus import CellStatus
 from Board import *
@@ -13,7 +12,6 @@ def draw_handler(canvas):
                 
     #Update currentGen board
     currentGen = updateCurrentGen(board, currentGen)
-    time.sleep(0.001)
 
 boardAndCurrentGen = initializeBoard()
 board = boardAndCurrentGen[0]

@@ -64,9 +64,7 @@ def updateCurrentGen(board, currentGen):
     return currentGen
 
 def sum(row, column, currentGen):
-    
     cellSum = 0
-
     for rowModifier in range(-1,2):
         for columnModifier in range(-1,2):
 

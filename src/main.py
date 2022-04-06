@@ -5,12 +5,8 @@ from Board import *
 
 def draw_handler(canvas):
     global currentGen
-    
-    printBoard(board, canvas)
-        
+    printBoard(board, canvas) 
     updateBoard(board, currentGen)
-                
-    #Update currentGen board
     currentGen = updateCurrentGen(board, currentGen)
 
 boardAndCurrentGen = initializeBoard()

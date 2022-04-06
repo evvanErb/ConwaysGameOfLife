@@ -13,21 +13,13 @@ def initializeAcorn():
             board[row].append(CellStatus.DEAD)
             currentGen[row].append(CellStatus.DEAD)
 
-    board[44][74] = CellStatus.ALIVE
-    board[44][75] = CellStatus.ALIVE
-    board[42][75] = CellStatus.ALIVE
-    board[43][77] = CellStatus.ALIVE
-    board[44][78] = CellStatus.ALIVE
-    board[44][79] = CellStatus.ALIVE
-    board[44][80] = CellStatus.ALIVE
-    
-    currentGen[44][74] = CellStatus.ALIVE
-    currentGen[44][75] = CellStatus.ALIVE
-    currentGen[42][75] = CellStatus.ALIVE
-    currentGen[43][77] = CellStatus.ALIVE
-    currentGen[44][78] = CellStatus.ALIVE
-    currentGen[44][79] = CellStatus.ALIVE
-    currentGen[44][80] = CellStatus.ALIVE
+    currentGen[44][74] = board[44][74] = CellStatus.ALIVE
+    currentGen[44][75] = board[44][75] = CellStatus.ALIVE
+    currentGen[42][75] = board[42][75] = CellStatus.ALIVE
+    currentGen[43][77] = board[43][77] = CellStatus.ALIVE
+    currentGen[44][78] = board[44][78] = CellStatus.ALIVE
+    currentGen[44][79] = board[44][79] = CellStatus.ALIVE
+    currentGen[44][80] = board[44][80] = CellStatus.ALIVE
     
     return [board, currentGen]
 

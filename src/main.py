@@ -5,7 +5,7 @@ from Board import *
 
 def draw_handler(canvas):
     global board
-    printBoard(board, canvas) 
+    drawBoard(board, canvas) 
     board = updateBoard(board)
 
 board = initializeBoard()

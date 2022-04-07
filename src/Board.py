@@ -30,7 +30,7 @@ def initializeBoard():
     else:
         return initializeRandom(seedValue)
 
-def sumAliveNeighbors(row, column, currentGen):
+def sumAliveNeighbors(row, column, board):
 
     numAliveNeighbors = 0
     
@@ -38,28 +38,28 @@ def sumAliveNeighbors(row, column, currentGen):
         for columnModifier in range(-1,2):
 
             if (not (row + rowModifier < 0 or row + rowModifier > 99 or column + columnModifier < 0 or column + columnModifier > 99)):
-                    if ((currentGen[(row+rowModifier), (column+columnModifier)] == CellStatus.ALIVE) and (rowModifier != 0 or columnModifier != 0)):
+                    if ((board[(row+rowModifier), (column+columnModifier)] == CellStatus.ALIVE) and (rowModifier != 0 or columnModifier != 0)):
                         numAliveNeighbors += 1
 
     return numAliveNeighbors
     
 #rules of game
-def rules(row, column, currentCell, currentGen):
+def rules(row, column, board):
 
-    numAliveNeighbors = sumAliveNeighbors(row, column, currentGen)
+    numAliveNeighbors = sumAliveNeighbors(row, column, board)
 
-    if(numAliveNeighbors == 3 or (numAliveNeighbors == 2 and currentCell == CellStatus.ALIVE)):
+    if(numAliveNeighbors == 3 or (numAliveNeighbors == 2 and board[row, column] == CellStatus.ALIVE)):
         return CellStatus.ALIVE
     else:
         return CellStatus.DEAD
 
 def updateBoard(board):
 
-    currentGen = np.copy(board)
+    boardCopy = np.copy(board)
 
     for row in range(len(board)):
         for column in range(len(board[row])):
-            board[row, column] = rules(row, column, currentGen[row, column], currentGen)
+            board[row, column] = rules(row, column, boardCopy)
 
     return board
 

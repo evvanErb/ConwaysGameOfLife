@@ -34,9 +34,7 @@ def initializeBoard():
     seedValue = input("Enter a seed value:\n>>> ")
     
     if(seedValue == "acorn"):
-        #initialize board
         return initializeAcorn()
-        
     else:
         return initializeRandom(seedValue)
 

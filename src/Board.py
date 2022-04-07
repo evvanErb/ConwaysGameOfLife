@@ -3,32 +3,22 @@ import random
 import numpy as np
 from CellStatus import CellStatus
 
-def initializeAcorn():
-
-    board = np.full((100, 100), CellStatus.DEAD)
-    board[44, 80] = board[44, 79] = board[44, 78] = board[43, 77] = board[42, 75] = board[44, 75] = board[44, 74] = CellStatus.ALIVE
-    return board
-
-def initializeRandom(seedValue):
-
-    board = np.full((100, 100), CellStatus.DEAD)
-    random.seed(seedValue)
-
-    for row in range(100):
-        for column in range(100):
-            if(random.randint(0,9) == 0):
-                board[row, column] = CellStatus.ALIVE
-
-    return board
-
 def initializeBoard():
 
     seedValue = input("Enter a seed value:\n>>> ")
+    board = np.full((100, 100), CellStatus.DEAD)
     
     if (seedValue == "acorn"):
-        return initializeAcorn()
+        board[44, 80] = board[44, 79] = board[44, 78] = board[43, 77] = board[42, 75] = board[44, 75] = board[44, 74] = CellStatus.ALIVE
+
     else:
-        return initializeRandom(seedValue)
+        random.seed(seedValue)
+        for row in range(100):
+            for column in range(100):
+                if(random.randint(0,9) == 0):
+                    board[row, column] = CellStatus.ALIVE
+    
+    return board
 
 def sumAliveNeighbors(row, column, board):
 

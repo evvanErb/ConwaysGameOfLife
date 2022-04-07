@@ -58,19 +58,8 @@ def rules(row, column, current, currentGen):
 
     cellSum = sum(row, column, currentGen)
 
-    #Underpopulation
-    if(cellSum < 2):
-        return CellStatus.DEAD
-    #Overpopulation
-    elif(cellSum > 3):
-        return CellStatus.DEAD
-    #Reproduction and same
-    elif(cellSum == 3):
+    if(cellSum == 3 or (cellSum == 2 and current == CellStatus.ALIVE)):
         return CellStatus.ALIVE
-    #Same
-    elif(cellSum == 2 and current == CellStatus.ALIVE):
-        return CellStatus.ALIVE
-    #Dead and only 2
     else:
         return CellStatus.DEAD
 

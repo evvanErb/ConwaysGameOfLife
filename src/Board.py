@@ -71,7 +71,7 @@ def updateBoard(board):
 
     return board
 
-def printBoard(board, canvas):
+def drawBoard(board, canvas):
 
     for row in range(len(board)):
         for column in range(len(board[row])):

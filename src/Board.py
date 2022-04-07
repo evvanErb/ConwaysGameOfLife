@@ -30,7 +30,7 @@ def initializeBoard():
     else:
         return initializeRandom(seedValue)
 
-def sum(row, column, currentGen):
+def sumNeighbors(row, column, currentGen):
 
     cellSum = 0
     
@@ -46,7 +46,7 @@ def sum(row, column, currentGen):
 #rules of game
 def rules(row, column, current, currentGen):
 
-    cellSum = sum(row, column, currentGen)
+    cellSum = sumNeighbors(row, column, currentGen)
 
     if(cellSum == 3 or (cellSum == 2 and current == CellStatus.ALIVE)):
         return CellStatus.ALIVE

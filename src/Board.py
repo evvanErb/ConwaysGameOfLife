@@ -6,9 +6,7 @@ from CellStatus import CellStatus
 def initializeAcorn():
 
     board = np.full((100, 100), CellStatus.DEAD)
-
     board[44, 80] = board[44, 79] = board[44, 78] = board[43, 77] = board[42, 75] = board[44, 75] = board[44, 74] = CellStatus.ALIVE
-    
     return board
 
 def initializeRandom(seedValue):

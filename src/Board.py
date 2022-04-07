@@ -25,7 +25,7 @@ def initializeBoard():
 
     seedValue = input("Enter a seed value:\n>>> ")
     
-    if(seedValue == "acorn"):
+    if (seedValue == "acorn"):
         return initializeAcorn()
     else:
         return initializeRandom(seedValue)
@@ -48,7 +48,7 @@ def rules(row, column, board):
 
     numAliveNeighbors = sumAliveNeighbors(row, column, board)
 
-    if(numAliveNeighbors == 3 or (numAliveNeighbors == 2 and board[row, column] == CellStatus.ALIVE)):
+    if (numAliveNeighbors == 3 or (numAliveNeighbors == 2 and board[row, column] == CellStatus.ALIVE)):
         return CellStatus.ALIVE
     else:
         return CellStatus.DEAD

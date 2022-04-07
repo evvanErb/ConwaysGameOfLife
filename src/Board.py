@@ -80,7 +80,7 @@ def updateBoard(board):
 
     for row in range(len(board)):
         for column in range(len(board[row])):
-            board[row, column] = rules(row, column, currentGen[row][column], currentGen)
+            board[row, column] = rules(row, column, currentGen[row, column], currentGen)
 
     return board
 

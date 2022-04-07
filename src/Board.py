@@ -44,11 +44,11 @@ def sumAliveNeighbors(row, column, currentGen):
     return numAliveNeighbors
     
 #rules of game
-def rules(row, column, current, currentGen):
+def rules(row, column, currentCell, currentGen):
 
     numAliveNeighbors = sumAliveNeighbors(row, column, currentGen)
 
-    if(numAliveNeighbors == 3 or (numAliveNeighbors == 2 and current == CellStatus.ALIVE)):
+    if(numAliveNeighbors == 3 or (numAliveNeighbors == 2 and currentCell == CellStatus.ALIVE)):
         return CellStatus.ALIVE
     else:
         return CellStatus.DEAD
